@@ -2,7 +2,7 @@
 <html class="x-admin-sm">
     <head>
         <meta charset="UTF-8">
-        <title>欢迎页面-X-admin2.2</title>
+        <title>会员页面-X-admin2.2</title>
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -58,30 +58,20 @@
                                       <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
                                     </th>
                                     <th>ID</th>
-                                    <th>电影名称</th>
-                                    <th>图片地址</th>
-                                    <th>介绍</th>
-                                    <th>网盘下载地址</th>
-                                    <th>提取码</th>
-                                    <th>操作</th></tr>
+                                    <th>用户名</th>
+                                    <th>密码</th>
+                                      <th>操作</th>
+                                  </tr>
                                 </thead>
                                 <tbody>
                                     {{each data}}
                                   <tr>
-                                    <td>
-                                      <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
-                                    </td>
-                                    <td>{{@$value._id}}</td>
-                                      <td>{{$value.movieName}}</td>
                                       <td>
-                                          {{if $value.imgUrl}}
-                                          <img src="http://localhost:3000/{{$value.imgUrl}}" alt="">
-                                          {{else}}暂无图片
-                                          {{/if}}
+                                          <input type="checkbox" name="id" value="1"   lay-skin="primary">
                                       </td>
-                                      <td>{{$value.markup}}</td>
-                                      <td>{{$value.downUrl}}</td>
-                                      <td>{{$value.secret}}</td>
+                                      <td>{{@ $value._id}}</td>
+                                      <td>{{$value.username}}</td>
+                                      <td>{{$value.password}}</td>
 
                                     <td class="td-manage">
                                       <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
