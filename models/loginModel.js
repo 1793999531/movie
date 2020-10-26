@@ -1,7 +1,8 @@
 const md5 = require('md5');
 const salt = require('../config/salt');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/moviedb'); //连接数据库
+const siteConfig = require('../config/siteConfig')
+mongoose.connect(siteConfig.movieDBUrl); //连接数据库
 
 const adminModel = mongoose.model('Admin', { username: String, password: String });//admins表模型
 //后台登录检查

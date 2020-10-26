@@ -1,8 +1,11 @@
+//电影评论模型
+
 const salt = require('../config/salt');
+const siteConfig = require('../config/siteConfig')
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
-mongoose.connect('mongodb://localhost/moviedb'); //连接数据库
+mongoose.connect(siteConfig.movieDBUrl); //连接数据库
 
 const commentModel = mongoose.model('Comment', {userId: String ,movieId: String , username: String, comment: String, time: String },'comments');//user表模型
 function addComment(movieId,comment,token) {
@@ -95,8 +98,8 @@ function showCommentList(movieId){
                 }
             })
         }
-        //{ObjectId:movieId}
-        commentModel.find().exec((error,data)=>{ //查找comments表的所有数据
+        //{_id:movieId}5f92a825a61ecb9f182b7f9a
+        commentModel.find({movieId}).exec((error,data)=>{ //查找comments表的所有数据
             if(error){
                 reject({
                     error_code:5006,
@@ -109,7 +112,7 @@ function showCommentList(movieId){
 
             if(data.length!=0){
                 resolve({
-                    error_code:5007,
+                    error_code:0,
                     reason: "获取评论列表成功",
                     result: {
                         data

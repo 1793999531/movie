@@ -2,8 +2,8 @@ const md5 = require('md5');
 const salt = require('../config/salt');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-
-mongoose.connect('mongodb://localhost/moviedb'); //连接数据库
+const siteConfig = require('../config/siteConfig')
+mongoose.connect(siteConfig.movieDBUrl); //连接数据库
 
 const userModel = mongoose.model('User', { username: String, password: String },'users');//users表模型
 //f:front 前台登录检查

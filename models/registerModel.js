@@ -2,7 +2,8 @@ const md5 = require('md5');
 const salt = require('../config/salt');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/moviedb'); //连接数据库
+const siteConfig = require('../config/siteConfig')
+mongoose.connect(siteConfig.movieDBUrl); //连接数据库
 
 const userModel = mongoose.model('registerUser', { username: String, password: String , infos: String},'users');//user表模型
 function register(username,password,infos) {

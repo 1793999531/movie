@@ -1,0 +1,19 @@
+{
+  "name": "电影网站接口文档",
+  "version": "0.1.0",
+  "description": "none",
+  "title": "movie",
+  "url" : "http://localhost:3000/api/v1",
+  "sampleUrl": "http://localhost:3000/api/v1",
+
+  "header": {
+    "title": "简介"
+  },
+  "footer": {
+    "title": "底部"
+  },
+  "template": {
+    "withCompare": true,
+    "withGenerator": false
+  }
+}

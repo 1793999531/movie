@@ -1,7 +1,7 @@
 //model模型负责和数据库打交道 获取详细数据写在模型model
 const mongoose = require('mongoose');
 let siteConfig = require('../config/siteConfig')
-mongoose.connect('mongodb://localhost/moviedb'); //连接数据库
+mongoose.connect(siteConfig.movieDBUrl); //连接数据库
 const movieModel = mongoose.model('Movie', { movieName: String, imgUrl: String, markup: String, downUrl: String, secret: String });//movies表模型
 function newMovieModel(req,res){
 
