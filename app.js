@@ -1,15 +1,13 @@
 const express = require('express')
 const app = express();
 const cookieSession = require('cookie-session')
-const port = 3000;
+const cors = require('cors');
+const {sitePort} = require('./config/siteConfig');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-app.all('*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    next();
-})
+app.use(cors()); //开启允许跨域
+
 //bodypaser cookieSession 这些配置要放在引入之前
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -47,4 +45,4 @@ app.use('/api/v1/register',registerApiRouter);
 app.use('/api/v1/frontLogin',frontLoginApiRouter);
 app.use('/api/v1/comment',commentApiRouter);
 
-app.listen(3000,()=> console.log(`listen to port ${port}`));
+app.listen(sitePort,()=> console.log(`listen to port ${sitePort}`));

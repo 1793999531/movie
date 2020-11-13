@@ -36,7 +36,8 @@ async function register(req,res){
     let username =( req.body.username || '').trim();
     let password = (req.body.password || '').trim();
     let infos = (req.body.infos || '').trim();
-    // console.log(movieId)
+    // console.log(JSON.parse(req.query.username))
+    console.log(req.body);
     try{
         let data = await registerModel.register(username,password,infos);
         //成功则返回数据

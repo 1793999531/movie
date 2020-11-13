@@ -32,7 +32,7 @@ function getMovieList(callback){
         if(error){
             callback(error);
         }
-        // console.log('hhh')
+        console.log(data)
         callback(null,data);
 
     })

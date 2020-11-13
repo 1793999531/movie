@@ -18,6 +18,7 @@ function register(username,password,infos) {
                     data: null
                 }
             });
+            return;
         }
         console.log(username,222)
         //查user表是否已存在该用户
@@ -51,7 +52,7 @@ function register(username,password,infos) {
                     }else{
                         resolve({
                             error_code: 0,
-                            reason: "创建成功",
+                            reason: "注册成功",
                             result: {
                                 data:{
                                     id: data._id,
